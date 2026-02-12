@@ -6,6 +6,10 @@ maDMP (machine-actionable Data Management Plans) の共通標準スキーマ `$d
 
 以下に、TypeScript と Node.js を用いた実装計画を提示します。
 
+**MUST:**
+
+* 開発は TDD (Test-Driven Development) サイクルを厳守し、テストカバレッジ >80% を維持しながら進めます。
+
 ## 1. アーキテクチャ概要
 
 このプロジェクトは、ローカルまたはリモートにある JSON スキーマファイルを読み込み、MCP プロトコルを通じて AI モデル（クライアント）からの「検索リクエスト」に応答するサーバーです。

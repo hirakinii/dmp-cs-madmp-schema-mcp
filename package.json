@@ -27,7 +27,7 @@
     "schema",
     "data-management-plan"
   ],
-  "license": "ISC",
+  "license": "UNLICENSED",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.26.0",
     "zod": "^4.3.6"

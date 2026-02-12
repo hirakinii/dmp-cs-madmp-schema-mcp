@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { loadSchema } from "./utils/schema-loader.js";
 import { registerTools } from "./tools.js";
+import { registerResources } from "./resources.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,6 +21,7 @@ const server = new McpServer({
 });
 
 registerTools(server, index);
+registerResources(server, index);
 
 async function main() {
   const transport = new StdioServerTransport();

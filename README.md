@@ -1,32 +1,35 @@
 # maDMP Schema MCP Server
 
-maDMP (machine-actionable Data Management Plans) スキーマ（バージョン1.2）の `$defs` に定義されたエンティティを検索・参照するための MCP サーバーです。
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
+[![License: Unilicense](https://img.shields.io/badge/Unilicense-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-## 機能
+An MCP server for searching and referencing entities defined in `$defs` of the maDMP (machine-actionable Data Management Plans) schema (version 1.2).
+
+## Features
 
 ### MCP Tools
 
-| ツール名 | 説明 |
-|---|---|
-| `list_definitions` | スキーマ内の全定義名と説明の一覧を返す |
-| `search_definitions` | キーワードで定義を検索（名前・説明を大文字小文字区別なしで部分一致） |
-| `get_definition` | 定義名を指定して完全な JSON Schema 構造を取得（`$ref` の解決オプション付き） |
+| Tool Name            | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| `list_definitions`   | Returns a list of all definition names and descriptions in the schema                          |
+| `search_definitions` | Searches definitions by keyword (case-insensitive partial match on names and descriptions)     |
+| `get_definition`     | Retrieves the complete JSON Schema structure for a given definition name (with `$ref` resolution option) |
 
 ### MCP Resources
 
-| URI テンプレート | 説明 |
-|---|---|
-| `schema://madmp/defs/{name}` | 指定した定義の JSON Schema を `$ref` 解決済みで返す。一覧取得・名前の補完にも対応 |
+| URI Template                 | Description                                                                                         |
+| ---------------------------- | --------------------------------------------------------------------------------------------------- |
+| `schema://madmp/defs/{name}` | Returns the JSON Schema for a specified definition with `$ref` resolved. Supports listing and name completion |
 
-## 技術スタック
+## Tech Stack
 
-- **言語**: TypeScript (ES2022, ESM)
+- **Language**: TypeScript (ES2022, ESM)
 - **MCP SDK**: `@modelcontextprotocol/sdk`
-- **バリデーション**: Zod v4
-- **テスト**: Vitest
-- **リンター/フォーマッター**: ESLint + Prettier
+- **Validation**: Zod v4
+- **Testing**: Vitest
+- **Linter/Formatter**: ESLint + Prettier
 
-## セットアップ
+## Setup
 
 ```bash
 git clone <repository-url>
@@ -34,42 +37,42 @@ cd dmp-cs-madmp-schema-mcp
 npm install
 ```
 
-## スクリプト
+## Scripts
 
 ```bash
-npm run build          # TypeScript コンパイル
-npm run dev            # tsx による開発実行
-npm start              # コンパイル済み JS を実行
+npm run build          # TypeScript compilation
+npm run dev            # Development run with tsx
+npm start              # Run compiled JS
 
-npm test               # テスト実行
-npm run test:watch     # テストをウォッチモードで実行
-npm run test:coverage  # カバレッジ付きテスト実行
+npm test               # Run tests
+npm run test:watch     # Run tests in watch mode
+npm run test:coverage  # Run tests with coverage
 
-npm run lint           # ESLint チェック
-npm run lint:fix       # ESLint 自動修正
-npm run typecheck      # 型チェック
-npm run format         # Prettier フォーマット
-npm run format:check   # Prettier フォーマットチェック
+npm run lint           # ESLint check
+npm run lint:fix       # ESLint auto-fix
+npm run typecheck      # Type checking
+npm run format         # Prettier format
+npm run format:check   # Prettier format check
 ```
 
-## プロジェクト構成
+## Project Structure
 
 ```
 src/
-├── index.ts                    # エントリポイント（サーバー起動）
-├── tools.ts                    # MCP ツール登録
-├── tools.test.ts               # ツールのテスト
-├── resources.ts                # MCP リソース登録
-├── resources.test.ts           # リソースのテスト
+├── index.ts                    # Entry point (server startup)
+├── tools.ts                    # MCP tool registration
+├── tools.test.ts               # Tool tests
+├── resources.ts                # MCP resource registration
+├── resources.test.ts           # Resource tests
 └── utils/
-    ├── schema-loader.ts        # スキーマ読み込み・インデックス構築・$ref 解決
-    └── schema-loader.test.ts   # スキーマローダーのテスト
+    ├── schema-loader.ts        # Schema loading, index building, $ref resolution
+    └── schema-loader.test.ts   # Schema loader tests
 schema/
 └── 1.2/
-    └── maDMP-schema-1.2.json   # maDMP スキーマファイル
+    └── maDMP-schema-1.2.json   # maDMP schema file
 ```
 
-## MCP クライアント設定例
+## MCP Client Configuration Example
 
 ```json
 {
@@ -82,6 +85,10 @@ schema/
 }
 ```
 
-## スキーマ情報
+## Schema Information
 
-このプロジェクトは `schema/1.2/maDMP-schema-1.2.json` を参照し、`$defs` セクションに定義された各エンティティ（Affiliation, Contact, Cost, Dataset, Project 等）を検索対象としています。
+This project references `schema/1.2/maDMP-schema-1.2.json` and targets each entity defined in the `$defs` section (Affiliation, Contact, Cost, Dataset, Project, etc.) for search.
+
+## License
+
+See [LICENSE](./LICENSE).

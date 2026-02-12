@@ -1,6 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
-import type { SchemaIndex } from "./schema-loader.js";
+import type { SchemaIndex } from "./utils/schema-loader.js";
 
 export function registerTools(server: McpServer, index: SchemaIndex): void {
   server.registerTool(

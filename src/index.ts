@@ -3,7 +3,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import path from "path";
 import { fileURLToPath } from "url";
-import { loadSchema } from "./schema-loader.js";
+import { loadSchema } from "./utils/schema-loader.js";
 import { registerTools } from "./tools.js";
 
 const __filename = fileURLToPath(import.meta.url);

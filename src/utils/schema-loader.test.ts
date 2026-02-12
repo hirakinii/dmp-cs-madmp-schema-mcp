@@ -1,12 +1,13 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { loadSchema, type SchemaIndex, type DefinitionEntry } from "./schema-loader.js";
+
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SCHEMA_PATH = path.join(__dirname, "..", "schema", "1.2", "maDMP-schema-1.2.json");
+const SCHEMA_PATH = path.join(__dirname, "..", "..", "schema", "1.2", "maDMP-schema-1.2.json");
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 

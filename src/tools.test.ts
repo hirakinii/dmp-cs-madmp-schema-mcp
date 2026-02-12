@@ -2,7 +2,7 @@ import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { InMemoryTransport } from "@modelcontextprotocol/sdk/inMemory.js";
-import { loadSchema } from "./schema-loader.js";
+import { loadSchema } from "./utils/schema-loader.js";
 import { registerTools } from "./tools.js";
 import path from "path";
 import { fileURLToPath } from "url";
